@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Document</title>
+</head>
+
+
+<style>
+
+    #Wapp{
+
+        width: 500px;
+        height: 250px;
+        background: radial-gradient(283px at 1.7% 8.6%, rgb(141, 254, 235) 0%, rgb(232, 176, 254) 90%);
+        margin-left: 320px;
+        border-radius: 50px;
+        margin-top: 100px;
+        text-align: center;
+        padding-top: 90px;
+        font-weight: bolder;
+        font-size: x-large;
+        
+    }
+    
+</style>
+
+<body >
+
+    <div id ="Wapp">
+       
+    <div id="weatherApp"> 
+     <i>Weather  channel</i> 
+        <br>
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weatherInfo"></div>
+    </div>
+    </div>
+    
+    
+    
+    </body>
+    
+    
+    <script>
+    
+    const weatherApp = document.getElementById('weatherApp');
+    const cityInput = document.getElementById('cityInput');
+    const weatherInfo = document.getElementById('weatherInfo');
+    
+    
+    
+    const citiesWeatherData = {
+    "New York": { condition: "Sunny", temperature: "25°C" },
+    "London": { condition: "Cloudy", temperature: "18°C" },
+    "Tokyo": { condition: "Rainy", temperature: "22°C" },
+    "Sydney": { condition: "Partly Cloudy", temperature: "28°C" }
+    };
+    
+    
+    
+    function getWeather() {
+    const city = cityInput.value.trim();
+    
+    if (city === "") {
+        alert("Please enter a city name.");
+        return;
+    }
+    
+    const weatherData = citiesWeatherData[city];
+    
+    if (weatherData) {
+        weatherInfo.innerHTML = `
+            <h2>${city}</h2>
+            <p>Condition: ${weatherData.condition}</p>
+            <p>Temperature: ${weatherData.temperature}</p>
+        `;
+    } else {
+        alert("Weather data not available for this city.");
+    }
+    }
+    
+    
+    </script>
+        
+
+</body>
+</html>
+
